@@ -1,0 +1,93 @@
+export interface InquiryNotesQuery {
+  pageNum: number;
+  pageSize: number;
+  place?: string;
+  party?: string;
+  inquirer?: string;
+  inspectionId?: string;
+  status?: string;
+  params?: Record<string, any>;
+}
+
+export interface InquiryNotesVO {
+  id: string;
+  startTime: string;
+  endTime: string;
+  times: number;
+  questionCount: number;
+  place: string;
+  inquirer: string;
+  inquirerCopy: string;
+  party: string;
+  gender: string;
+  otherContact: string;
+  position: string;
+  inquirer1: string;
+  respondent1: string;
+  inquirer2: string;
+  respondent2: string;
+  question1: string;
+  answer1: string;
+  question2: string;
+  answer2: string;
+  question3: string;
+  answer3: string;
+  question4: string;
+  answer4: string;
+  question5: string;
+  answer5: string;
+  question6: string;
+  answer6: string;
+  question7: string;
+  answer7: string;
+  question8: string;
+  answer8: string;
+  question9: string;
+  answer9: string;
+  question10: string;
+  answer10: string;
+  status: string;
+  inspectionId: string;
+  remark: string;
+  createTime: string;
+}
+
+export interface InquiryNotesForm {
+  id?: string;
+  startTime?: string;
+  endTime?: string;
+  times?: number;
+  questionCount?: number;
+  place: string;
+  inquirer?: string;
+  inquirerCopy?: string;
+  party: string;
+  gender?: string;
+  otherContact?: string;
+  position?: string;
+  inquirer1?: string;
+  respondent1?: string;
+  question1?: string;
+  answer1?: string;
+  question2?: string;
+  answer2?: string;
+  question3?: string;
+  answer3?: string;
+  question4?: string;
+  answer4?: string;
+  question5?: string;
+  answer5?: string;
+  question6?: string;
+  answer6?: string;
+  question7?: string;
+  answer7?: string;
+  question8?: string;
+  answer8?: string;
+  question9?: string;
+  answer9?: string;
+  question10?: string;
+  answer10?: string;
+  status: string;
+  inspectionId?: string;
+  remark?: string;
+}
