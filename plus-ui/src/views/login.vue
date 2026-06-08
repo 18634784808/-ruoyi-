@@ -2,6 +2,7 @@
   <div class="login">
     <el-form ref="loginRef" :model="loginForm" :rules="loginRules" class="login-form">
       <div class="title-box">
+        <div class="title-accent" />
         <h3 class="title">{{ title }}</h3>
         <lang-select />
       </div>
@@ -44,47 +45,28 @@
         </div>
       </el-form-item>
       <el-checkbox v-model="loginForm.rememberMe" style="margin: 0 0 25px 0">{{ proxy.$t('login.rememberPassword') }}</el-checkbox>
-      <el-form-item style="float: right">
-        <el-button circle :title="proxy.$t('login.social.wechat')" @click="doSocialLogin('wechat')">
-          <svg-icon icon-class="wechat" />
-        </el-button>
-        <el-button circle :title="proxy.$t('login.social.maxkey')" @click="doSocialLogin('maxkey')">
-          <svg-icon icon-class="maxkey" />
-        </el-button>
-        <el-button circle :title="proxy.$t('login.social.topiam')" @click="doSocialLogin('topiam')">
-          <svg-icon icon-class="topiam" />
-        </el-button>
-        <el-button circle :title="proxy.$t('login.social.gitee')" @click="doSocialLogin('gitee')">
-          <svg-icon icon-class="gitee" />
-        </el-button>
-        <el-button circle :title="proxy.$t('login.social.github')" @click="doSocialLogin('github')">
-          <svg-icon icon-class="github" />
-        </el-button>
-      </el-form-item>
       <el-form-item style="width: 100%">
         <el-button :loading="loading" size="large" type="primary" style="width: 100%" @click.prevent="handleLogin">
           <span v-if="!loading">{{ proxy.$t('login.login') }}</span>
           <span v-else>{{ proxy.$t('login.logging') }}</span>
         </el-button>
-        <div v-if="register" style="float: right">
+        <div v-if="register" style="float: right; margin-top: 8px;">
           <router-link class="link-type" :to="'/register'">{{ proxy.$t('login.switchRegisterPage') }}</router-link>
         </div>
       </el-form-item>
     </el-form>
     <!--  底部  -->
     <div class="el-login-footer">
-      <span>Copyright © 2018-2026 疯狂的狮子Li All Rights Reserved.</span>
+      <span>Copyright © 2018-2026 RuoYi-Vue-Plus All Rights Reserved.</span>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { getCodeImg, getTenantList } from '@/api/login';
-import { authRouterUrl } from '@/api/system/social/auth';
 import { useUserStore } from '@/store/modules/user';
 import { LoginData, TenantVO } from '@/api/types';
 import { to } from 'await-to-js';
-import { HttpStatus } from '@/enums/RespEnum';
 import { useI18n } from 'vue-i18n';
 
 const { proxy } = getCurrentInstance() as ComponentInternalInstance;
@@ -210,21 +192,6 @@ const initTenantList = async () => {
   }
 };
 
-/**
- * 第三方登录
- * @param type
- */
-const doSocialLogin = (type: string) => {
-  authRouterUrl(type, loginForm.value.tenantId).then((res: any) => {
-    if (res.code === HttpStatus.SUCCESS) {
-      // 获取授权地址跳转
-      window.location.href = res.data;
-    } else {
-      ElMessage.error(res.msg);
-    }
-  });
-};
-
 onMounted(() => {
   getCode();
   initTenantList();
@@ -240,29 +207,56 @@ onMounted(() => {
   height: 100%;
   background-image: url('../assets/images/login-background.jpg');
   background-size: cover;
+  background-position: center;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(26, 39, 64, 0.75) 0%, rgba(21, 32, 54, 0.65) 100%);
+    z-index: 0;
+  }
 }
 
 .title-box {
-  display: flex;
+  text-align: center;
+  margin-bottom: 28px;
+  position: relative;
+
+  .title-accent {
+    width: 40px;
+    height: 3px;
+    background: var(--el-color-primary);
+    margin: 0 auto 14px auto;
+    border-radius: 2px;
+  }
 
   .title {
-    margin: 0px auto 30px auto;
+    margin: 0;
     text-align: center;
-    color: #707070;
+    color: #1a2740;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 2px;
   }
 
   :deep(.lang-select--style) {
-    line-height: 0;
+    position: absolute;
+    right: -8px;
+    top: -4px;
     color: #7483a3;
   }
 }
 
 .login-form {
-  border-radius: 6px;
+  border-radius: 8px;
   background: #ffffff;
   width: 400px;
-  padding: 25px 25px 5px 25px;
+  padding: 32px 28px 10px 28px;
   z-index: 1;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+
   .el-input {
     height: 40px;
     input {
@@ -301,10 +295,11 @@ onMounted(() => {
   bottom: 0;
   width: 100%;
   text-align: center;
-  color: #fff;
-  font-family: Arial, serif;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-size: 12px;
   letter-spacing: 1px;
+  z-index: 1;
 }
 
 .login-code-img {

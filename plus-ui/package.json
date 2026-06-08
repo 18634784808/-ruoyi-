@@ -3,7 +3,7 @@
   "name": "ruoyi-vue-plus",
   "version": "5.5.3-2.5.3",
   "description": "RuoYi-Vue-Plus多租户管理系统",
-  "author": "LionLi",
+  "author": "",
   "license": "MIT",
   "type": "module",
   "scripts": {
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://gitee.com/JavaLionLi/plus-ui.git"
+    "url": "https://gitee.com/dromara/plus-ui.git"
   },
   "dependencies": {
     "@element-plus/icons-vue": "2.3.2",

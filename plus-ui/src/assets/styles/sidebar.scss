@@ -88,16 +88,16 @@
     // menu hover
     .theme-dark .sub-menu-title-noDropdown,
     .theme-dark .el-sub-menu__title {
-      border-radius: 8px;
-      margin: 1px 5px 1px 5px;
+      border-radius: 6px;
+      margin: 1px 6px 1px 6px;
       &:hover {
         background-color: $base-sub-menu-title-hover !important;
       }
     }
     .sub-menu-title-noDropdown,
     .el-sub-menu__title {
-      border-radius: 8px;
-      margin: 1px 5px 1px 5px;
+      border-radius: 6px;
+      margin: 1px 6px 1px 6px;
       &:hover {
         background-color: rgba(0, 0, 0, 0.05) !important;
       }
@@ -110,9 +110,9 @@
     & .nest-menu .el-sub-menu > .el-sub-menu__title,
     & .el-sub-menu .el-menu-item {
       min-width: calc($base-sidebar-width - 20px) !important;
-      border-radius: 8px;
-      height: 45px;
-      margin: 1px 5px 1px 5px;
+      border-radius: 6px;
+      height: 42px;
+      margin: 1px 6px 1px 6px;
       &:not(.is-active):hover {
         background-color: rgba(0, 0, 0, 0.1) !important;
       }
@@ -121,13 +121,14 @@
     & .theme-dark .nest-menu .el-sub-menu > .el-sub-menu__title,
     & .theme-dark .el-sub-menu .el-menu-item {
       background-color: $base-sub-menu-background !important;
-      border-radius: 8px;
-      height: 45px;
-      margin: 1px 5px 1px 5px;
+      border-radius: 6px;
+      height: 42px;
+      margin: 1px 6px 1px 6px;
 
       &.is-active {
         background-color: var(--el-menu-active-color) !important;
         color: #fff;
+        border-left: 3px solid var(--el-color-primary);
       }
       &:not(.is-active):hover {
         // you can use $sub-menuHover
@@ -137,13 +138,14 @@
 
     & .theme-dark .nest-menu .el-sub-menu > .el-sub-menu__title,
     & .theme-dark .el-menu-item {
-      border-radius: 8px;
-      height: 45px;
-      margin: 1px 5px 1px 5px;
+      border-radius: 6px;
+      height: 42px;
+      margin: 1px 6px 1px 6px;
 
       &.is-active {
         background-color: var(--el-menu-active-color) !important;
         color: #fff;
+        border-left: 3px solid var(--el-color-primary);
       }
       &:not(.is-active):hover {
         // you can use $sub-menuHover
@@ -153,13 +155,14 @@
 
     & .nest-menu .el-sub-menu > .el-sub-menu__title,
     & .el-menu-item {
-      border-radius: 8px;
-      height: 45px;
-      margin: 1px 5px 1px 5px;
+      border-radius: 6px;
+      height: 42px;
+      margin: 1px 6px 1px 6px;
 
       &.is-active {
         background-color: var(--el-menu-active-color) !important;
         color: #fff;
+        border-left: 3px solid var(--el-color-primary);
       }
       &:not(.is-active):hover {
         // you can use $sub-menuHover
@@ -181,11 +184,12 @@
     .sub-menu-title-noDropdown {
       padding: 0 !important;
       position: relative;
-      height: 45px;
+      height: 42px;
       // 选中状态的菜单
       &.is-active {
         background-color: var(--el-menu-active-color) !important;
         color: #fff !important;
+        border-left: 3px solid var(--el-color-primary);
       }
 
       .el-tooltip {
@@ -196,10 +200,10 @@
 
     & .el-sub-menu {
       overflow: hidden;
-      border-radius: 8px;
+      border-radius: 6px;
       .el-sub-menu__title.el-tooltip__trigger {
-        border-radius: 8px;
-        height: 45px;
+        border-radius: 6px;
+        height: 42px;
       }
 
       // 选中状态的菜单
@@ -286,9 +290,9 @@
 }
 // 收起菜单后悬浮的菜单样式
 .el-popper.is-pure{
-  border-radius: 8px;
+  border-radius: 6px;
   .el-menu--popup{
-    border-radius: 8px;
+    border-radius: 6px;
   }
   .el-menu-item{
     border-radius: 4px;

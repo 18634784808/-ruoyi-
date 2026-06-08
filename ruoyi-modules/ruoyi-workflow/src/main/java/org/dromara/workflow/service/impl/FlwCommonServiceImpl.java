@@ -29,7 +29,6 @@ import java.util.Set;
 /**
  * 工作流工具
  *
- * @author LionLi
  */
 @ConditionalOnEnable
 @Slf4j
